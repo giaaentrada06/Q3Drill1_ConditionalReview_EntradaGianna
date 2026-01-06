@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Average Finder</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<style>
+ body { background-color: beige;
+        margin-right: 90px;
+
+ }
+
+
+</style>
+<body>
+    <h1>Simple Average Finder</h1>
+    <input type="number" id="score1" placeholder="Score 1">
+    <input type="number" id="score2" placeholder="Score 2">
+    <button py-click="find_average">Compute</button>
+    <div id="result"></div>
+
+    <script type="py">
+from pyscript import display, document
+
+# Get scores and compute average
+def find_average(e):
+    s1 = float(document.getElementById("score1").value)
+    s2 = float(document.getElementById("score2").value)
+    avg = (s1 + s2) / 2
+    # Show pass or fail
+    if avg >= 75:
+        display("✅ Passed! Average: " + str(avg), target="result")
+    else:
+        display("❌ Failed! Average: " + str(avg), target="result")
+    # End
+    </script>
+</body>
+</html>
